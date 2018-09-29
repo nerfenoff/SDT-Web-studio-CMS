@@ -1,2 +1,2 @@
-<bold>Task:</bold>
+**Task:**
 Create own CMS 
