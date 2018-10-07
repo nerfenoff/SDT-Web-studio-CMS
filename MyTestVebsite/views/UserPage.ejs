@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+    <title>Видео</title>
+    <link rel="stylesheet" href="public/css/style.css">
+	<style>
+		#footer{
+			position: fixed;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			background-color: #333;
+			color: white;
+			text-align: center;
+			border-radius: 25px 25px 0 0;
+		}
+	</style>
+</head>
+<script type="text/javascript">
+	function exit()
+	{
+		var postReq = new XMLHttpRequest(); 
+
+		postReq.open('GET','/exit'); 
+		postReq.onload = function(){
+			location.replace("../");
+		}
+
+		postReq.send();
+
+	}
+</script>
+<body>
+	<div id ="content">
+		<% include blocks/header.ejs %>
+		<div id = "center">
+
+			<ul>
+	 			<li>Username: <%= currentUser.username %> </li>
+	 			<li>Email: <%= currentUser.email %> </li>
+	 			<li>Password: <%= currentUser.password %> </li>
+			</ul>
+
+			<button onclick = "exit()">Выйти</button>
+			
+		</div>
+	</div>
+
+	<footer id="footer"><p>All rights are protected ©</p></footer>
+</body>
+
+</html>

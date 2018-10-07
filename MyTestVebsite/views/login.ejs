@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<title>вход</title>
+</head>
+<body>
+
+<form method="post" action="/login" onload = "erorrs()">
+  <div class = "username">
+  <label for="username">username</label>
+  <input type="text" class="form-control" name="username"  placeholder="Enter username">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" name="pass" id="exampleInputPassword1" placeholder="Password">
+  </div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" name ="check" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Войти</button>
+</form>
+<div id = "erorrsCont"></div>
+<script type="text/javascript">
+  function erorrs(){
+    var elem = document.getElementById("erorrsCont");
+    elem.innerHTML = this.responseText;
+}
+</script>
+
+</body>
+</html>
