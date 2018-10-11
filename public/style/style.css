@@ -1,0 +1,48 @@
+.blok {
+    z-index: 1;
+    position: absolute;
+    margin-left: 3%;
+    width: 400px;
+    height: 500px;
+    background-color: aliceblue;
+    border: white solid 0px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all ease-in-out 300ms;
+    margin-top: 10px;
+    margin-bottom: 10%;
+}
+.im2 {
+    margin-left: 60%;
+}
+img{
+    width: 400px;
+}
+img {
+    animation-direction: alternate;
+    transition: all ease-in-out 6000ms;
+}
+
+ img:hover{
+     transform: translate(0, -1500px);
+ }
+.im22:hover{
+    transform: translate(0, -300px);
+}
+.blok:hover {
+    box-shadow: 0px 26px 50px 8px rgba(0, 0, 0, 0.6);
+    transform: translate(0, -40px)
+}
+
+#im3:hover {
+    transform: translate(0, -700px);
+}
+#template2
+ {
+     margin-left: 37%;
+ }
+#template3
+{
+    margin-left: 70%;
+}
+

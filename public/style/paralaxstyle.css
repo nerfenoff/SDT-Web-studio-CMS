@@ -1,0 +1,103 @@
+
+body, html {
+  height: 100%;
+  font-family: sans-serif;
+  margin: 0;
+    padding-bottom: 200px;
+}
+.parallax [class*="bg__"] {
+  position: relative;
+  height: 50vh;
+  text-indent: -9999px;
+  background-attachment: fixed;  /*this may be the key*/
+  background-position: top center;
+  background-size: cover;
+}
+.parallax .bg__foo, .parallax .bg__bazz {
+  height: 100vh;
+}
+.parallax .bg__foo {
+  background-image: url(../image/mountain1.jpg);
+}
+
+#reg2{
+    position: absolute;
+    z-index: 12;
+}
+
+#regbloc
+{
+    position: absolute;
+    z-index: 10;
+    margin-top: 30%;
+    margin-left: 27% ;
+}
+
+#signup {
+    z-index: 11;
+    position: absolute;
+    left: 300px;
+}
+
+#wel{
+position: absolute;
+z-index: 4;
+color: white;
+font-size: 200PX;
+    max-width: 200px;
+    max-height: 200px;
+align-content: center;
+margin-left: 22%;
+margin-top: 15%;
+}
+
+#Header1
+{
+margin-left: 33%;
+margin-top: 5%;
+    font-size: 80PX;
+font-weight: 100px;
+    max-width: 700px;
+    max-height: 100px;
+color: #08121E;
+}
+#headerbar{
+    border: rgb(10, 63, 199) solid 5px;
+    border-radius: 20px;
+    max-width: 200px;
+    height: 1px;
+    z-index: 14;
+    margin-left: 45%;
+    margin-bottom: 5%;
+    background-color: rgb(10, 63, 199);
+}
+#bar{
+position: absolute;
+z-index: 3;
+color: white;
+font-size: 25PX;
+margin-left:87%;
+margin-top: 10px; 
+}
+#reg{
+  margin-left: 10px; 
+}
+#log{
+  margin-right: 10px; 
+}
+
+#end{
+    position: absolute;
+    margin: 500%;
+}
+footer {
+    position: absolute;
+    height: 120px;
+    width: 100%;
+    top: 300%;
+    background-color: #08121E;
+
+}
+footer,p{
+    color: white;
+}
