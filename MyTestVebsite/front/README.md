@@ -1,2 +1,0 @@
-# CMStask
-Task for TRPO
