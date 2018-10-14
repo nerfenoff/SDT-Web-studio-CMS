@@ -1,0 +1,56 @@
+#rename{
+	color: green;	
+	margin: 10px; 
+}
+.btn-style::after {
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 0;
+}
+
+.btn-style:hover:after {
+  width: 100%;
+}
+button,
+button::after {
+  -webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+	transition: all 0.3s;
+	
+}
+
+button {
+
+  background: none;
+  border: 3px solid #000000;
+  border-radius: 5px;
+  color: #000000;
+  display: block;
+  font-size: 1em;
+  font-weight: bold;
+  margin: 1em auto;
+  padding: 0.9em 4em;
+  position: relative;
+  text-transform: uppercase;
+}
+
+button::before,
+button::after {
+  background: #000000;
+  content: '';
+  position: absolute;
+  z-index: -1;
+}
+
+button:hover {
+  color: #fff;
+ 
+}
+
+.btn-1{
+  margin: 0 0;
+  padding: 0.5em 1em;
+  font-size: 0.7em;
+}
