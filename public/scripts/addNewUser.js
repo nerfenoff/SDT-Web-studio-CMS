@@ -1,6 +1,7 @@
 const sqlite3 = require('sqlite3').verbose();
 
 
+
 module.exports = {
 	tableRows: '',
 	addNew: function(req,res){
@@ -35,8 +36,8 @@ module.exports = {
 				  }
 				  	console.log('Close the database connection.');
 				});
-				res.cookie('login', user, { maxAge : 35000 });
-
+				//res.cookie('login', user, { maxAge : 35000 });
+				res.cookie('login', user);
 				add(user);
 				res.end('next');
 			}

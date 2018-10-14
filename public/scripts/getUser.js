@@ -29,7 +29,8 @@ module.exports = {
 				  }
 				  	console.log('Close the database connection.');
 				});
-				res.cookie('login', user, { maxAge : 35000 });
+				//res.cookie('login', user, { maxAge : 35000 });
+				res.cookie('login', user);
 
 				res.writeHead(200, {'Content-Type':'text/plan'}); 
 				res.end('next');

@@ -10,7 +10,8 @@ const sqlite3 = require('sqlite3').verbose();
 var addNewUser = require('./public/scripts/addNewUser');
 var getUser = require('./public/scripts/getUser');
 var blaaaaat = require('./public/scripts/blaaaaat');
-var createPage = require('./public/scripts/createPage')
+var createPage = require('./public/scripts/createPage');
+var AddElement = require('./public/scripts/AddElement');
 
 var app = express();
 /*
@@ -19,6 +20,8 @@ httpsOptions = {
     cert: fs.readFileSync("server.crt") // путь к сертификату
 }
 */
+
+var content =[];
 
 app.set("view engine","ejs");
 app.use("/public",express.static("public"));
@@ -48,7 +51,7 @@ app.get("/signup",function(req,res){
 	res.render("signup");
 });
 
-app.post("/registrationNewUser",addNewUser.addNew);
+app.post("/registrationNewUser",addNewUser.addNew,content);
 
 app.route("/Login")
 .get(function(req,res){
@@ -84,6 +87,38 @@ app.route('/createNewPage')
 	})
 
 	.post(createPage.CreateNewPage);
+
+app.get("/pageSelector",function(req,res){
+	res.render("pageSelector");
+});
+
+app.get("/Templates/BoxPortfolio/indexData",function(req,res){
+	res.render("Templates/BoxPortfolio/indexData");
+});
+
+app.post("/Templates/BoxPortfolio/indexData",function(req,res){
+	content = req.body._content;
+	//console.log(content)
+	//createPage.CreateNewPage.cont = content;
+	res.end('next');
+});
+
+app.get("/temmp",function(req,res){
+
+	var fileContent = fs.readFileSync('./views/Templates/BoxPortfolio/indexData.ejs');
+	//res.writeHead(200, {'Content-Type':'text/html'}); 
+	res.send(fileContent);
+});
+
+app.get("/ContentSelector",function(req,res){
+	res.render('ContentSelector');
+});
+
+app.post("/ContentSelector",AddElement.AddToDB);//function(req,res){
+
+	//console.log(req.body);
+	//res.send('next');
+//});
 
 app.listen(3030);
 //https.createServer(httpsOptions, app).listen(443);

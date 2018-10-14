@@ -1,7 +1,44 @@
 	document.getElementById("submit").addEventListener('click',createNewPage);
 
+
+    var Template = window.location.href.split("?")[1].split("=")[1];
+    var Page = window.location.href.split("?")[1].split("=")[2];
+    //alert(Template);
+    //alert(Page);
+    /*
+	var getReq = new XMLHttpRequest(); 
+	getReq.open('GET','/temmp',false); 
+
+	let content = [];
+	getReq.onload = function(){
+		var y = this.responseText;
+		document.getElementById('Errors').insertAdjacentHTML("afterend",y);
+		var temmmp = document.getElementById('content');
+		var contentt = document.getElementById("content").childNodes;
+    	var resString = '';
+    	var k = 0;
+    	
+    
+    	for(var i = 0; i < contentt.length;++i)
+   		{
+	        if(contentt[i].id == k){
+	            content.push(contentt[i].classList);
+	            content.push(contentt[i].innerHTML);
+	            k++;
+	        } 
+	    }
+		temmmp.remove();
+		//alert(content);
+	}
+
+	getReq.send();
+	*/
+
+
+
 function createNewPage(){
 	
+	//alert(content);
 	var url = document.getElementById("url");
     var fileName = document.getElementById("fileName");
      
@@ -12,8 +49,7 @@ function createNewPage(){
 
   	if(url.value[0] != '/')
   		errorString += '<p>url должен начинатся с "/"</p>';
-//let tempp = document.getElementById("tempp");
-//alert(tempp.innerHTML);
+
   	if(errorString == ''){
   		
 		var postReq = new XMLHttpRequest(); 
@@ -32,7 +68,9 @@ function createNewPage(){
 		}
 	    var j = {
 	          url: url.value,
-	          fileName: fileName.value
+	          fileName: fileName.value,
+	          Template: Template,
+	          Page: Page
 	        }; 
 	    postReq.send(JSON.stringify(j));
 }

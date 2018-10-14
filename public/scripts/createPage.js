@@ -1,11 +1,15 @@
 const fs = require( "fs" );
 const sqlite3 = require('sqlite3').verbose();
+
+var _content = '';
 module.exports = {	
+
 	CreateNewPage: function(req,res){
 		var options = req.body;
-		var fileContent = fs.readFileSync('./views/Templates/index.ejs');
+		var fileContent = fs.readFileSync('./views/Templates/'+ options.Template +'/'+options.Page+'.ejs');
 		fs.writeFileSync('./views/userPages/'+ options.fileName +'.ejs',fileContent);
 		addToDB(options.url,options.fileName,0);
+		//addContent();
 		res.send('next');
 	}
 }
@@ -29,4 +33,8 @@ function addToDB(url,name,mult){
 	    }
 		  	console.log('Close the database connection.');
 	});
+}
+
+function addContent(cont){
+	console.log(cont);
 }
