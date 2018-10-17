@@ -4,7 +4,6 @@ var _url = window.location.href.split("?")[1].split("=")[1];
 
   		function addToPage(id){
 
-  			alert(id);
 			var postReq = new XMLHttpRequest(); 
 		    postReq.open('POST','/ContentSelector',false); 
 		    postReq.setRequestHeader('Content-Type', 'application/json');
@@ -21,7 +20,6 @@ var _url = window.location.href.split("?")[1].split("=")[1];
 			else
 				document.getElementById('Errors').innerHTML = this.responseText; 
 		}
-		alert(elem.classList.toString());
 	    var j = {
 
 	          url:     	 	_url,

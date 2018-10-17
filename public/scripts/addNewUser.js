@@ -8,7 +8,6 @@ module.exports = {
 		var self = this; 		
 		self.tableRows = ``;
 		var user = req.body;
-		//console.log(user);
 
 		let db = new sqlite3.Database('public/DB/users.db', sqlite3.OPEN_READWRITE, (err) => {
   		if (err) {
@@ -34,10 +33,12 @@ module.exports = {
 				  if (err) {
 				    console.error(err.message);
 				  }
-				  	console.log('Close the database connection.');
 				});
-				//res.cookie('login', user, { maxAge : 35000 });
-				res.cookie('login', user);
+				
+				if(user.remember)
+					res.cookie('login', user, { maxAge : (Date.now() + 30).toLocaleString() });
+				else
+					res.cookie('login', user);
 				add(user);
 				res.end('next');
 			}
@@ -68,7 +69,6 @@ function add(user){
 	  if (err) {
 	    console.error(err.message);
 	  }
-	  console.log('Close the database connection.');
 	});
 }
 

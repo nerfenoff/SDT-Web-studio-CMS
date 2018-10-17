@@ -15,17 +15,17 @@ module.exports = {
 
 		let sql =  `INSERT INTO PagesContent VALUES ( ?,?,?,?)`;
 
-		db.get(`select _rowid_ FROM Pages where URL = ?`,[elem.url],function(err,row){
+		db.get(`select _id FROM Pages where URL = ?`,[elem.url],function(err,row){
 			if(err) throw err;
 			if(row == null) res.send('Page not found');
 			else
 			{
-				db.all(`select ContentID FROM PagesContent where PageID = ?`,[row.rowid], function(err, row2){
+				db.all(`select ContentID FROM PagesContent where PageID = ?`,[row._id], function(err, row2){
 					if(err) throw err;
 					console.log('#######');
 					console.log(row2.length);
 
-					db.run(sql,[row.rowid,row2.length,elem.class,elem.innerHTML]);
+					db.run(sql,[row._id,row2.length,elem.class,elem.innerHTML]);
 
 				});
 			}

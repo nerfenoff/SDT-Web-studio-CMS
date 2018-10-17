@@ -51,10 +51,11 @@
     </div>
 
 <div id="templ">
-    <div class="blok" id = "template1" ><a href = "pageSelector"><img class="im1" src="public/image/site.png"></a></div>
+    <div class="blok" id = "template1" ><% if(user != undefined && user.isAdmin){ %><a href = "pageSelector"><% }; %><img class="im1" src="public/image/site.png"></a></div>
     <div class="blok im2" id = "template2" ><img class="im22" src="public/image/site2.png"></div>
     <div class="blok ima2" id = "template3" ><img id="im3" src="public/image/velic.png"></div>
 </div>
+
 <div id ="end"></div>
 
 <script src="public/scripts/CreateNewPage.js"></script>

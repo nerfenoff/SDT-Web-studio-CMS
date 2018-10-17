@@ -3,6 +3,7 @@ document.getElementById("submit").addEventListener('click',login);
 function login(){
     var username = document.getElementById("username");
     var password = document.getElementById("password");
+    var _remember = document.getElementById("agree");
      
     let errorString = '';
 
@@ -25,7 +26,9 @@ function login(){
 
       var j = {
           username: username.value,
-          password: password.value
+          password: password.value,
+          remember: _remember.checked,
+          isAdmin: false
         }; 
         var temp = JSON.stringify(j);
 

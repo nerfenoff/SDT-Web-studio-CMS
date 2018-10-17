@@ -11,7 +11,7 @@ module.exports = {
   		}
   		});
 
-  		let sql =  `SELECT _rowid_,fileName FROM Pages WHERE URL = ?;`;
+  		let sql =  `SELECT _id,fileName FROM Pages WHERE URL = ?;`;
 
 		db.get(sql,[req.url], function(err, row){
 			if(err) throw err;
@@ -25,7 +25,7 @@ module.exports = {
 				let sql2 =  `select ContentID,class,innerHTML  FROM PagesContent where PageID = ?`;
 
 				
-				db.all(sql2,[row.rowid], function(err, rows){
+				db.all(sql2,[row._id], function(err, rows){
 					if(err) throw err;
 					var dataa = '';
 					rows.forEach((row2) =>{
@@ -34,9 +34,8 @@ module.exports = {
 							${row2.innerHTML}
 							</div>`
 					});
-
-					console.log(dataa);
-					res.render('UserPages/'+row.fileName,{_data:dataa});
+					
+					res.render('UserPages/'+row.fileName,{_data:dataa,user: req.cookies.login});
 
 				});
 			}
@@ -50,26 +49,4 @@ module.exports = {
 		});
 		
 	}
-}
-
-function temp(id,fileName){
-
-	let db = new sqlite3.Database('public/DB/Pages.db', sqlite3.OPEN_READONLY, (err) => {
-  		if (err) {
-    		console.error(err.message);
-  		}
-  		});
-
-
-
-
-			
-
-		db.close((err) => {
-				if (err) {
-					console.error(err.message);
-				}
-				  	console.log('Close the database connection.');
-			});
-
 }
