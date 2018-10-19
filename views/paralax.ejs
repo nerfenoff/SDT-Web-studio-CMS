@@ -45,6 +45,15 @@
     <div class="bg__foo">fooddd</div>
   </div>
 
+<% if(user != undefined && user.isAdmin){ %>
+  <div class="container">
+      <div id="Header1">existing page</div>
+      <div id = "headerbar"></div>
+    </div>
+    <div id="templ">
+<%- data %>
+</div>
+<% }; %>
     <div class="container">
       <div id="Header1">Our Templates</div>
       <div id = "headerbar"></div>
@@ -58,7 +67,7 @@
 
 <div id ="end"></div>
 
-<script src="public/scripts/CreateNewPage.js"></script>
+<script src="public/scripts/recFromPage/deleteSomesing.js"></script>
 
 <footer><P>SDT Company</P></footer>
   </body>

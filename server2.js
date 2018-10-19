@@ -33,7 +33,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 //обработчики****************
 
-app.use(blaaaaat.getPageUrl);
+app.use(blaaaaat.getPage);
 
 
 
@@ -43,9 +43,9 @@ app.get("/",function(req,res){
 	res.redirect('/Templates');
 });
 
-app.get("/Templates",function(req,res){
+app.get("/Templates",blaaaaat.getAllPages);/*function(req,res){
 	res.render("paralax",{user: req.cookies.login});
-});
+});*/
 
 app.get("/signup",function(req,res){
 	res.render("signup");

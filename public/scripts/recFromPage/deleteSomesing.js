@@ -21,3 +21,11 @@ function deleteRec() {
 	    
 	    postReq.send(JSON.stringify({url: document.location.pathname}));
 }
+
+function deleteRecMain(url){
+	var postReq = new XMLHttpRequest(); 
+	    postReq.open('POST','/DeletePage',false); 
+	    postReq.setRequestHeader('Content-Type', 'application/json');
+
+	    postReq.send(JSON.stringify({url: url}));
+}
