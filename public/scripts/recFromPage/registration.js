@@ -4,6 +4,7 @@ document.getElementById("submit").addEventListener('click',check);
     var username = document.getElementById("username");
     var email = document.getElementById("email");
     var password = document.getElementById("password");
+    var _remember = document.getElementById("agree");
     var errorString = "";
     if(username.value == "")
       errorString += '<p>введите имя пользователя</p>';
@@ -31,7 +32,9 @@ document.getElementById("submit").addEventListener('click',check);
       var j = {
           username: username.value,
           email: email.value,
-          password: password.value
+          password: password.value,
+          remember: _remember.checked,
+          isAdmin: false
         }; 
         var temp = JSON.stringify(j);
 

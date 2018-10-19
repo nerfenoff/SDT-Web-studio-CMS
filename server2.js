@@ -12,7 +12,7 @@ var getUser = require('./public/scripts/getUser');
 var blaaaaat = require('./public/scripts/blaaaaat');
 var createPage = require('./public/scripts/createPage');
 var AddElement = require('./public/scripts/AddElement');
-
+var Deleting = require('./public/scripts/Deleting');
 var app = express();
 /*
 httpsOptions = {
@@ -33,7 +33,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 //обработчики****************
 
-app.use(blaaaaat.getPageUrl);
+app.use(blaaaaat.getPage);
 
 
 
@@ -43,15 +43,15 @@ app.get("/",function(req,res){
 	res.redirect('/Templates');
 });
 
-app.get("/Templates",function(req,res){
-	res.render("paralax");
-});
+app.get("/Templates",blaaaaat.getAllPages);/*function(req,res){
+	res.render("paralax",{user: req.cookies.login});
+});*/
 
 app.get("/signup",function(req,res){
 	res.render("signup");
 });
 
-app.post("/registrationNewUser",addNewUser.addNew,content);
+app.post("/registrationNewUser",addNewUser.addNew);
 
 app.route("/Login")
 .get(function(req,res){
@@ -75,7 +75,7 @@ app.route('/UserPage')
 	});
 app.get('/exit',function(req,res){
 	var user = {username: null, password: null, email: null};
-	res.cookie('login', user, { maxAge : 35000 });
+	res.cookie('login', user);
 
 	res.redirect("index");
 });
@@ -114,11 +114,16 @@ app.get("/ContentSelector",function(req,res){
 	res.render('ContentSelector');
 });
 
-app.post("/ContentSelector",AddElement.AddToDB);//function(req,res){
+app.post("/ContentSelector",AddElement.AddToDB);
 
-	//console.log(req.body);
-	//res.send('next');
-//});
+app.post("/DeletePage",Deleting.deletePage);/*function(req,res){
+	if(req.cookies.login != undefined && req.cookies.login.isAdmin){
+		res.redirect('/Templates');
+		console.log(req.body.text);
+	}
+	else res.send('you don`t have permission');
+})
+*/
 
 app.listen(3030);
 //https.createServer(httpsOptions, app).listen(443);

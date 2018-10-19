@@ -21,7 +21,7 @@ function addToDB(url,name,mult){
     		console.error(err.message);
   		}
  	});
-	let sql =  `INSERT INTO Pages VALUES ( ?,?,?)`;
+	let sql =  `INSERT INTO Pages(URL,fileName,many) VALUES ( ?,?,?)`;
 
 	db.run(sql,[url,name,mult], function(err, row){
 		if(err) throw err;
@@ -31,7 +31,6 @@ function addToDB(url,name,mult){
 		if (err) {
 		    console.error(err.message);
 	    }
-		  	console.log('Close the database connection.');
 	});
 }
 

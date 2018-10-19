@@ -27,10 +27,14 @@ module.exports = {
 				  if (err) {
 				    console.error(err.message);
 				  }
-				  	console.log('Close the database connection.');
 				});
-				//res.cookie('login', user, { maxAge : 35000 });
-				res.cookie('login', user);
+				if(row.role == 'admin')
+					user.isAdmin = true;
+
+				if(user.remember)
+					res.cookie('login', user, { maxAge : (Date.now() + 30)});
+				else
+					res.cookie('login', user);
 
 				res.writeHead(200, {'Content-Type':'text/plan'}); 
 				res.end('next');

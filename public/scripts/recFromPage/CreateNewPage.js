@@ -3,8 +3,7 @@
 
     var Template = window.location.href.split("?")[1].split("=")[1];
     var Page = window.location.href.split("?")[1].split("=")[2];
-    //alert(Template);
-    //alert(Page);
+
     /*
 	var getReq = new XMLHttpRequest(); 
 	getReq.open('GET','/temmp',false); 
@@ -28,7 +27,7 @@
 	        } 
 	    }
 		temmmp.remove();
-		//alert(content);
+		
 	}
 
 	getReq.send();
@@ -38,7 +37,6 @@
 
 function createNewPage(){
 	
-	//alert(content);
 	var url = document.getElementById("url");
     var fileName = document.getElementById("fileName");
      
@@ -60,11 +58,9 @@ function createNewPage(){
 	    	alert(this.responseText);
 			if(this.responseText == 'next')
 			{
-				alert(location.origin + url.value);
 				window.location = location.origin + url.value;
 			}
-			else
-				document.getElementById('Errors').innerHTML = this.responseText; 
+			
 		}
 	    var j = {
 	          url: url.value,
