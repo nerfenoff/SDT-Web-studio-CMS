@@ -17,6 +17,9 @@
     <link href="../public/Templates/BoxPortfolio/css/style.css" rel="stylesheet">
 
 
+
+
+
     <!-- modernizr -->
     <script src="js/modernizr.js"></script>
 
@@ -43,45 +46,8 @@
 
     <div class="container-fluid">
         <!-- box header -->
-        <header class="box-header">
-            <div class="box-logo">
-
-                <a href="index"><img src="../public/Templates/BoxPortfolio/img/logo.png" width="80" alt="Logo"></a>
-              <!-- <button class="btn-style btn-1">Change logo</button> -->
-            </div>
-            <!-- box-nav -->
-            <a class="box-primary-nav-trigger" href="#0">
-                <span class="box-menu-text">Menu</span><span class="box-menu-icon"></span>
-            </a>
-            <!-- box-primary-nav-trigger -->
-        </header>
-        <!-- end box header -->
-
-        <!-- nav -->
-        <nav>
-            <ul class="box-primary-nav">
-                <li class="box-label">About me</li>
-
-                <li><a href="index">Intro</a> <i class="ion-ios-circle-filled color"></i></li>
-                <li><a href="#">About me</a></li>
-                <li><a href="#">services</a></li>
-                <li><a href="#">portfolio</a></li>
-                <li><a href="#">contact me</a></li>
-
-
-
-               <!-- <li class="box-label">Follow me</li>
-
-                <li class="box-social"><a href="#0"><i class="ion-social-facebook"></i></a></li>
-                <li class="box-social"><a href="#0"><i class="ion-social-instagram-outline"></i></a></li>
-                <li class="box-social"><a href="#0"><i class="ion-social-twitter"></i></a></li>
-                <li class="box-social"><a href="#0"><i class="ion-social-dribbble"></i></a></li>
-            -->
-            </ul>
-        </nav>
-        <!-- end nav -->
-
-        <!-- box-intro -->
+        
+        <% include ../blocks/BoxPortfolio/header.ejs %>
 
                     
 
@@ -152,10 +118,6 @@
     <!-- end portfolio div -->
 
 </div>
-<script id="JSDelete" type="text/javascript">
-    document.getElementById('AddContA').href="ContentSelector?url=" +  document.location.pathname;
-    document.getElementById('JSDelete').remove();
-</script>
     <!-- footer -->
     <footer>
         <div class="container-fluid">
@@ -166,9 +128,17 @@
 
     <!-- back to top -->
     <a href="#0" class="cd-top"><i class="ion-android-arrow-up"></i></a>
-    <!-- end back to top -->
+    <% if(user != undefined && user.isAdmin){ %>
+        <a href="#0" class="cd-top" style="bottom: 80px;" onclick="hideAdmin()"></a> 
 
+        <script id="JSDelete" type="text/javascript">
+            document.getElementById('AddContA').href="ContentSelector?url=" +  document.location.pathname;
+            document.getElementById('JSDelete').remove();
+        </script>
 
+        <script src="../public/js/AdminPanel.js"></script>
+
+<% }; %>
 
     <!-- jQuery -->
     <script src="../public/Templates/BoxPortfolio/js/jquery-2.1.1.js"></script>
