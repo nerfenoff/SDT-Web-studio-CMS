@@ -94,8 +94,8 @@
     <a href="#0" class="cd-top"><i class="ion-android-arrow-up"></i></a>
     <!-- end back to top -->
 <% if(user != undefined && user.isAdmin){ %>
-    <a class="cd-top" style="bottom: 80px;" onclick="hideAdmin()"></a> 
-    
+    <button id = "hide_show" onclick="hideAdmin()"><-</button> 
+
     <script src="../public/js/AdminPanel.js"></script>
 <% }; %>
 

@@ -28,4 +28,7 @@ function deleteRecMain(url){
 	    postReq.setRequestHeader('Content-Type', 'application/json');
 
 	    postReq.send(JSON.stringify({url: url}));
-}
+
+	    document.getElementById(`page_${url}`).remove();
+
+	}

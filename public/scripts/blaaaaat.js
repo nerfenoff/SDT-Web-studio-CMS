@@ -21,7 +21,7 @@ module.exports.getPage = function(req, res, next){
 			}
 			else{	
 
-				let sql2 =  `select ContentID,class,innerHTML  FROM PagesContent where PageID = ?`;
+				let sql2 =  `select ContentID,class,innerHTML FROM PagesContent where PageID = ?`;
 
 				
 				db.all(sql2,[row._id], function(err, rows){
@@ -31,11 +31,11 @@ module.exports.getPage = function(req, res, next){
 					rows.forEach((row2) =>{
 							dataa += `
 							<div id = "${row2.ContentID}" class = "${row2.class}">
-							${row2.innerHTML}
+								${row2.innerHTML}
 							</div>`
 					});
 					
-					res.render('UserPages/'+row.fileName,{_data:dataa,user: req.cookies.login});
+					res.render('UserPages/'+row.fileName,{data:dataa,user: req.cookies.login});
 
 				});
 			}
@@ -68,7 +68,7 @@ module.exports.getAllPages = function(req,res){
 					else
 						rows.forEach((row) =>{
 								data += `
-								<p><a href = "${row.URL}">${row.URL}</a> <button onclick="deleteRecMain('${row.URL}')">delete page</button></p>\n`
+								<p id = "page_${row.URL}"><a id = "${row.URL}" href = "${row.URL}">${row.URL}</a> <button onclick="deleteRecMain('${row.URL}')">delete page</button></p>\n`
 						});
 					
 					res.render('paralax',{data:data,user: req.cookies.login});
